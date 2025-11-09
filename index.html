@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinus Gradient</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls-panel">
+            <div class="control-group">
+                <label for="textVariant0">Texte des lignes</label>
+                <div id="textInputsContainer" class="multi-text-container">
+                    <div class="multi-text-row" data-index="0">
+                        <input type="text" id="textVariant0" class="line-text-input" value="SINUS" placeholder="Texte 1">
+                        <button type="button" class="remove-text-btn" aria-label="Retirer cette variante" disabled>&times;</button>
+                    </div>
+                </div>
+                <div class="multi-text-actions">
+                    <button type="button" id="addTextInputBtn" class="small-button">+ Ajouter une variante</button>
+                    <span class="multi-text-help">Jusqu’à 10 variantes, alternance automatique.</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="fontFamily">Font</label>
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="CAMagicHour-Regular">CAMagicHour-Regular</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="numCurves">Lines <span id="numCurvesValue">5</span></label>
+                <input type="range" id="numCurves" min="1" max="20" value="5">
+            </div>
+
+            <div class="control-group">
+                <label for="amplitude">Amplitude <span id="amplitudeValue">50</span></label>
+                <input type="range" id="amplitude" min="0" max="200" value="50">
+            </div>
+
+            <div class="control-group">
+                <label for="frequency">Frequency <span id="frequencyValue">2</span></label>
+                <input type="range" id="frequency" min="0.1" max="10" step="0.1" value="2">
+            </div>
+
+            <div class="control-group">
+                <label for="waveType">Wave Type</label>
+                <select id="waveType">
+                    <option value="0">Sin</option>
+                    <option value="1">Triangle</option>
+                    <option value="2">Square</option>
+                    <option value="3">Sawtooth</option>
+                    <option value="4">Inverse Sawtooth</option>
+                    <option value="5">Smooth Step</option>
+                    <option value="6">Pulse</option>
+                    <option value="7">Bell (Gaussian)</option>
+                    <option value="8">Bounce</option>
+                    <option value="9">Elastic</option>
+                    <option value="10">Ease In Out</option>
+                    <option value="11">Double Sin</option>
+                    <option value="12">Stairs</option>
+                    <option value="13">Spike</option>
+                    <option value="14">Heartbeat</option>
+                    <option value="15">Tent</option>
+                    <option value="16">Chaotic</option>
+                    <option value="17">Spiral Wave</option>
+                    <option value="18">Wave Packet</option>
+                    <option value="19">Kink</option>
+                    <option value="20">Modulated</option>
+                    <option value="21">Fractal</option>
+                    <option value="22">Beats</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="phase">Phase <span id="phaseValue">0</span>°</label>
+                <input type="range" id="phase" min="0" max="360" step="1" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="rotation">Rotation <span id="rotationValue">0</span>°</label>
+                <input type="range" id="rotation" min="0" max="360" step="1" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="verticalOffset">Vertical Offset <span id="verticalOffsetValue">0</span></label>
+                <input type="range" id="verticalOffset" min="-100" max="100" step="1" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="timeStagger">Time Stagger <span id="timeStaggerValue">0</span></label>
+                <input type="range" id="timeStagger" min="0" max="2" step="0.1" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="speed">Speed <span id="speedValue">2.0</span></label>
+                <input type="range" id="speed" min="0" max="10" step="0.1" value="2.0">
+            </div>
+
+            <div class="control-group">
+                <label for="spacing">Spacing <span id="spacingValue">0.8</span></label>
+                <input type="range" id="spacing" min="0.1" max="2" step="0.1" value="0.8">
+            </div>
+
+            <div class="control-group">
+                <label for="hue">Hue <span id="hueValue">0</span>°</label>
+                <input type="range" id="hue" min="0" max="360" step="1" value="0">
+            </div>
+
+                <div class="control-group">
+                    <label for="heatMapToggle">Heat Map</label>
+                    <input type="checkbox" id="heatMapToggle" checked>
+                </div>
+                
+                <div class="control-group">
+                    <label for="grain">Grain</label>
+                    <input type="range" id="grain" min="0" max="100" value="0" step="1">
+                    <span class="value" id="grainValue">0</span>
+                </div>
+
+
+                <div class="control-group" id="textColorGroup">
+                    <label for="textColor">Couleur du texte</label>
+                    <input type="color" id="textColor" value="#ffffff">
+                    <input type="text" id="textColorHex" placeholder="#FFFFFF" value="#ffffff" style="width: 110px; margin-left: 8px;">
+                </div>
+
+                <div class="control-group" id="backgroundColorGroup">
+                    <label for="backgroundColor">Couleur du fond</label>
+                    <input type="color" id="backgroundColor" value="#000000">
+                    <input type="text" id="backgroundColorHex" placeholder="#000000" value="#000000" style="width: 110px; margin-left: 8px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="imageLoader">Charger une image</label>
+                    <input type="file" id="imageLoader" accept="image/*">
+                </div>
+
+                <div class="control-group" id="imageColorGroup">
+                    <label for="imageColorToggle">Image en couleur</label>
+                    <input type="checkbox" id="imageColorToggle" checked>
+                </div>
+
+
+            <div class="control-group">
+                <label for="motionBlur">Motion Blur <span id="motionBlurValue">0</span></label>
+                <input type="range" id="motionBlur" min="0" max="50" step="0.5" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="textSize">Size <span id="textSizeValue">96</span></label>
+                <input type="range" id="textSize" min="24" max="400" value="96">
+            </div>
+
+
+            <div class="control-group">
+                <label for="backgroundColor">Background</label>
+                <input type="color" id="backgroundColor" value="#000000">
+            </div>
+
+            <div class="control-group">
+                <button id="resetBtn" class="reset-button">Reset All</button>
+            </div>
+
+            <div class="control-group">
+                <label for="gifDuration">Durée animation (s)</label>
+                <input type="number" id="gifDuration" min="0.5" max="20" step="0.5" value="4">
+            </div>
+
+            <div class="control-group">
+                <label for="gifFps">FPS animation</label>
+                <input type="number" id="gifFps" min="1" max="240" step="1" value="90">
+            </div>
+
+            <div class="control-group">
+                <button id="exportBtn" class="export-button">Export High Quality</button>
+            </div>
+
+            <div class="control-group">
+                <button id="exportGifBtn" class="export-button">Export GIF HQ</button>
+            </div>
+
+            <div class="control-group">
+                <button id="exportVideoBtn" class="export-button">Export Vidéo HQ</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="glCanvas"></canvas>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
